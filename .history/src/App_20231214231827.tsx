@@ -1,4 +1,4 @@
-import {BrowserRouter as Router,  Routes, Route} from "react-router-dom"
+import {BrowserRouter as  Routes, Route} from "react-router-dom"
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { HomePage } from "./pages/home/HomePage"
 import { MovieDetails } from "./pages/movieDetails/MovieDetails"

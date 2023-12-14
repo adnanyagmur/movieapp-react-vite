@@ -1,4 +1,4 @@
-import {BrowserRouter as Router,  Routes, Route} from "react-router-dom"
+import {BrowserRouter as  Routes, Route} from "react-router-dom"
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { HomePage } from "./pages/home/HomePage"
 import { MovieDetails } from "./pages/movieDetails/MovieDetails"
@@ -35,7 +35,7 @@ function App() {
   return (
    /*  <div style={{backgroundColor:(darkMode ? "black": "white")}}> */
 
-   <ThemeProvider theme={appTheme}>
+   //<ThemeProvider theme={appTheme}>
      <CssBaseline />
    <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
    <Container /* sx={{bgcolor:(darkMode ? "black": "white"), minHeight: '100vh'}} */>
@@ -46,7 +46,7 @@ function App() {
     </Routes>
     footer alanı
     </Container>
-    </ThemeProvider>
+  //  </ThemeProvider>
     
 /*     </div> */
   )
