@@ -1,4 +1,4 @@
-import {BrowserRouter as  Routes, Route} from "react-router-dom"
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { HomePage } from "./pages/home/HomePage"
 import { MovieDetails } from "./pages/movieDetails/MovieDetails"
@@ -38,7 +38,7 @@ function App() {
    <ThemeProvider theme={appTheme}>
      <CssBaseline />
    <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-   <Container /* sx={{bgcolor:(darkMode ? "black": "white"), minHeight: '100vh'}} */>
+   <Container sx={{bgcolor:(darkMode ? "black": "white"), minHeight: '100vh'}}>
     <Routes>
     <Route path="/" element={<HomePage/>} />
     <Route  path="/movie-details" element={<MovieDetails/>} />
