@@ -1,0 +1,29 @@
+/* :root {
+    font-family: 'Roboto', sans-serif; 
+  } */
+
+  :root {
+    --background-light: #ffffff;
+    --background-dark: #121212;
+    --text-light: #000000;
+    --text-dark: #ffffff;
+  }
+
+  body {
+    background-color: var(--background-light);
+    color: var(--text-light);
+  }
+  
+  body.dark-mode {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+  }
+  
+
+  
+ 
