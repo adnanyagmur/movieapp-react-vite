@@ -40,13 +40,14 @@ const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
                   variant="text"
                   color="inherit"
                   sx={{
-                    '&:hover': {
-                      backgroundColor: 'transparent', // veya başka bir uygun renk
+                    noHover: {
+                      "&:hover": {
+                        backgroundColor: "inherit", // Hover efektini devre dışı bırakmak için varsayılan arka plan rengini kullanabilirsiniz.
+                      },
                     },
                   }}
-                  onClick={() => navigate("/")}
                 >
-                  <ThunderstormIcon sx={{ mr: 1 }} />
+                  <ThunderstormIcon sx={{ ml: 2, mr: 1 }} />
 
                   <Typography variant="h6" sx={{ fontWeight: "bold" }}>
                     RAIN Movie
@@ -66,19 +67,17 @@ const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
             </Stack>
           </Grid> */}
             <Grid item>
-            <Stack direction="row" gap={2}>
-              <Button color="inherit" sx={{ fontWeight: "bold" }} onClick={() => navigate("/")}>
-                Home Page
+              <Button color="inherit" onClick={() => navigate("/")}>
+                Ana Sayfa
               </Button>
               <Button
                 color="inherit"
-                sx={{ fontWeight: "bold" }}
                 onClick={() => navigate("/favorite-list")}
               >
-                Favorite Movies
+                Favori Filmler
               </Button>
 
-              <IconButton  onClick={toggleDarkMode}>
+              <IconButton onClick={toggleDarkMode}>
                 {darkMode ? (
                   <Brightness7Icon sx={{ color: "#FFB534" }} />
                 ) : (
@@ -86,7 +85,26 @@ const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
                 )}
               </IconButton>
 
-              </Stack>
+              {/*    <Switch
+              checked={darkMode}
+              onChange={toggleDarkMode}
+              color="default"
+              inputProps={{ "aria-label": "toggle dark mode" }}
+              icon={<Brightness4Icon sx={{ color: "#000" }} />}
+              checkedIcon={<Brightness7Icon sx={{ color: "#FFB534" }} />}
+              sx={{
+                "& .MuiSwitch-thumb": {
+                  width: "24px",
+                  height: "24px",
+                  boxShadow: "0 2px 4px 0 rgba(0, 0, 0, 0.1)",
+                },
+                "& .MuiSwitch-switchBase + .MuiSwitch-track": {
+                  backgroundColor: "transparent",
+                  opacity: 0,
+                },
+                mb: "2px",
+              }}
+            />  */}
             </Grid>
           </Grid>
         </Toolbar>

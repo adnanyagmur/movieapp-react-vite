@@ -48,7 +48,7 @@ const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
                 >
                   <ThunderstormIcon sx={{ mr: 1 }} />
 
-                  <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                  <Typography variant="h7" sx={{ fontWeight: "bold" }}>
                     RAIN Movie
                   </Typography>
                 </Button>
@@ -67,18 +67,17 @@ const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
           </Grid> */}
             <Grid item>
             <Stack direction="row" gap={2}>
-              <Button color="inherit" sx={{ fontWeight: "bold" }} onClick={() => navigate("/")}>
+              <Button color="inherit" onClick={() => navigate("/")}>
                 Home Page
               </Button>
               <Button
                 color="inherit"
-                sx={{ fontWeight: "bold" }}
                 onClick={() => navigate("/favorite-list")}
               >
                 Favorite Movies
               </Button>
 
-              <IconButton  onClick={toggleDarkMode}>
+              <IconButton onClick={toggleDarkMode}>
                 {darkMode ? (
                   <Brightness7Icon sx={{ color: "#FFB534" }} />
                 ) : (
