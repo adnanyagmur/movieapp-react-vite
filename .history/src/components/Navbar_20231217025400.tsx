@@ -28,7 +28,7 @@ const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
 
   return (
     <AppBar
-      position="sticky"
+      position="absolute"
       color={theme.palette.mode === "light" ? "default" : "primary"}
     >
       <Container>

@@ -83,10 +83,10 @@ export const HomePage = () => {
               include_video: false,
              with_genres: '',
              primary_release_year: '',
-          /*    vote_average: {
-              gte: 2.0,
-              lte: 3.0,
-            }, */
+             vote_average: {
+              gte: 8.0,
+              lte: 10.0,
+            },
             // with_keywords: 'Birds%20of%20Prey',
              page: currentPage,
              
@@ -157,7 +157,7 @@ export const HomePage = () => {
   return (
     <Grid container spacing={1} sx={{m:3, justifyContent:"center"}}>
 <Grid item xs={12}>
-      <Search/>
+      <Search onFilterChange={handleFilterChange} />
       </Grid>
      
        {results.map((movie: MovieItem) => (

@@ -83,11 +83,7 @@ export const HomePage = () => {
               include_video: false,
              with_genres: '',
              primary_release_year: '',
-          /*    vote_average: {
-              gte: 2.0,
-              lte: 3.0,
-            }, */
-            // with_keywords: 'Birds%20of%20Prey',
+             with_keywords: 'Birds%20of%20Prey',
              page: currentPage,
              
             },
@@ -135,29 +131,10 @@ export const HomePage = () => {
   setCurrentPage(newPage);
   };
 
-
-  /////search
-  type Filter ={
-    searchText: string;
-    selectedOption: string;
-    selectedDate: Date | null;
-  }
-
-  const mockFilterData: Filter = {
-    searchText: 'Aranacak Metin',
-    selectedOption: 'option1',
-    selectedDate: new Date(),
-  };
-
-  const handleFilterChange = (filter: Filter) => {
-    // Burada filtre değiştiğinde yapılacak işlemleri ekleyebilirsiniz
-    console.log('Yeni Filtre:', filter);
-  };
-
   return (
     <Grid container spacing={1} sx={{m:3, justifyContent:"center"}}>
 <Grid item xs={12}>
-      <Search/>
+      <Search onFilterChange={} />
       </Grid>
      
        {results.map((movie: MovieItem) => (
