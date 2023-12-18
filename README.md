@@ -124,7 +124,7 @@ imagetest
 ![q5buc5d](https://github.com/adnanyagmur/movieapp-react-vite/assets/80180114/c6950982-361a-4d21-923b-ac57a2a59ce2)
 
 #### DetailPage - Comments
-<br>
+
 ![q0bzrts](https://github.com/adnanyagmur/movieapp-react-vite/assets/80180114/5caf1b46-5370-466e-975a-8a1711dbf4e2)
 
 ##### DetailPage - Comments - Comment Card onClick
