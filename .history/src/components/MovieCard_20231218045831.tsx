@@ -16,7 +16,6 @@ import DetailsIcon from "@mui/icons-material/ContentPasteSearch";
 import { useDispatch } from "react-redux";
 import { commitMovieDetails } from "../redux/slice/movieSlice";
 import { useNavigate } from "react-router-dom";
-import { formatDate } from "../Utils/helpers";
 
 type MovieItem = {
   adult: boolean;
@@ -129,7 +128,7 @@ function MovieCard({
             color="text.secondary"
             sx={{ marginBottom: "0.5rem" }}
           >
-            Release Date: {formatDate(releaseDate)}
+            Release Date: {releaseDate}
           </Typography>
           <Rating
             name="movie-rating"
