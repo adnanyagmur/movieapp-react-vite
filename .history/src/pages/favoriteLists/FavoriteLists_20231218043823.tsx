@@ -36,15 +36,15 @@ export const FavoriteLists = () => {
   return (
     <Grid container spacing={1} sx={{ m: 3 }}>
       {favoriteMovies.map((movie: MovieItem) => (
-        <Grid item key={movie?.id} xs={12} sm={6} md={3}>
+        <Grid item key={movie.id} xs={12} sm={6} md={3}>
           <MovieCard
-            key={movie?.id}
-            movieId={movie?.id?.toString()}
-            title={movie?.title}
-            overview={movie?.overview}
-            releaseDate={movie?.release_date}
-            posterPath={movie?.poster_path}
-            voteAverage={movie?.vote_average}
+            key={movie.id}
+            movieId={movie.id.toString()}
+            title={movie.title}
+            overview={movie.overview}
+            releaseDate={movie.release_date}
+            posterPath={movie.poster_path}
+            voteAverage={movie.vote_average}
             onFavoriteClick={() => handleFavoriteClick(movie)}
           />
         </Grid>
