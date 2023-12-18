@@ -13,7 +13,7 @@ type FooterProps ={
   
     return (
       <footer style={footerStyle}>
-        <Container maxWidth="sm">
+        <Container maxWidth="sm" sx={{mt:2}}>
           <Stack spacing={2} justifyContent="center">
             <Typography variant="body2" align="center">
               &copy; {new Date()?.getFullYear()} Adnan Yağmur
