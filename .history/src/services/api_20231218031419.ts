@@ -76,7 +76,7 @@ export const fetchGenres = async () => {
     }
   };
 
-  export const fetchMovieDetails = async (movieId: number) => {
+  export const fetchMovieDetails = async (movieId: string) => {
     try {
       const imageResponse = await axios.get(
         `https://api.themoviedb.org/3/movie/${movieId}/images?api_key=${apiKey}`

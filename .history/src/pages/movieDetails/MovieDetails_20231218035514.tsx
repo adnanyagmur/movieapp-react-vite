@@ -113,14 +113,17 @@ export const MovieDetails = () => {
 
   const trailerUrl = `https://www.youtube.com/embed/${selectedTrailers[0]?.key}`;
 
-  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
   return (
     <>
       <Grid container direction={{ xs: "column", md: "row" }} spacing={4}>
         <Grid item xs={12}>
-          <Paper elevation={3} sx={{ mr: 3, p: 2, mt: 2, width: "100%" }}>
+          <Paper
+            elevation={3}
+            sx={{ mr: 3, p: 2, width: "100%", margin: "auto" }}
+          >
             <Stack direction={{ xs: "column", md: "row" }} spacing={1}>
               <Grid xs={5}>
                 <Card
@@ -226,41 +229,16 @@ export const MovieDetails = () => {
             </Tabs>
           </Box>
           <CustomTabPanel value={value} index={0}>
-            {castAndCrew?.cast.length === 0 ? (
-              <Typography variant="body1" align="center">
-                No data found.
-              </Typography>
-            ) : (
-              <MovieActors cast={castAndCrew?.cast as never} />
-            )}
+            <MovieActors cast={castAndCrew ? castAndCrew?.cast : []} />
           </CustomTabPanel>
           <CustomTabPanel value={value} index={1}>
-            {videos.length === 0 ? (
-              <Typography variant="body1" align="center">
-                No data found.
-              </Typography>
-            ) : (
-              <MovieVideo videos={videos} />
-            )}
+            <MovieVideo videos={videos} />
           </CustomTabPanel>
-
           <CustomTabPanel value={value} index={2}>
-            {movieImage?.posters.length === 0 ? (
-              <Typography variant="body1" align="center">
-                No data found.
-              </Typography>
-            ) : (
-              <MoviePoster posters={movieImage?.posters as never} />
-            )}
+            <MoviePoster posters={movieImage?.posters as never} />
           </CustomTabPanel>
           <CustomTabPanel value={value} index={3}>
-            {reviews?.results.length === 0 ? (
-              <Typography variant="body1" align="center">
-                No data found.
-              </Typography>
-            ) : (
-              <MovieReview results={reviews?.results as never} />
-            )}
+            <MovieReview results={reviews?.results as never} />
           </CustomTabPanel>
         </Box>
       </Grid>

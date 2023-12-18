@@ -176,9 +176,7 @@ const Search = () => {
       <Dialog
         open={openDialog}
         onClose={handleDialogClose}
-        maxWidth="md"
-        fullWidth
-       
+        
       >
         <Stack>
           <DialogTitle>Advanced Filtering</DialogTitle>

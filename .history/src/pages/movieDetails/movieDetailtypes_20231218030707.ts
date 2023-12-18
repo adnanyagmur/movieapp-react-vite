@@ -11,7 +11,7 @@ type MovieDetail = {
 type MovieDTO = {
   adult: boolean;
   backdrop_path: string;
-  belongs_to_collection: null | any; 
+  belongs_to_collection: null | any; // null veya bir nesne olarak tanımlanabilir
   budget: number;
   genres: { id: number; name: string }[];
   homepage: string;

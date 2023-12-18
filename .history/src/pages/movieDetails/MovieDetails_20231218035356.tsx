@@ -30,11 +30,13 @@ import {
   MovieImageList,
   MovieCreditsDTO,
   VideoResultDTO,
+
   ReviewListDTO,
+
   MovieDTO,
+
 } from "./movieDetailtypes";
 import { fetchMovieDetails } from "../../services/api";
-import { formatDate } from "../../Utils/helpers";
 
 function CustomTabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
@@ -66,13 +68,16 @@ export const MovieDetails = () => {
 
   const [reviews, setReviews] = useState<ReviewListDTO | null>(null);
 
+
   const [movieImage, setMovieImage] = useState<MovieImageList>();
   const [value, setValue] = useState(0);
 
+
+
   useEffect(() => {
-    const movieId: number = movieDetailSelector?.movieId
+    const movieId : number= movieDetailSelector?.movieId
       ? parseInt(movieDetailSelector?.movieId)
-      : parseInt(movieIdParams?.id as never);
+      : parseInt(movieIdParams?.id as never)
 
     const fetchData = async () => {
       try {
@@ -83,12 +88,16 @@ export const MovieDetails = () => {
         setVideos(details.videos);
         setReviews(details.reviews);
       } catch (error) {
-        console.error("Error fetching movie details:", error);
+        console.error('Error fetching movie details:', error);
       }
     };
 
     fetchData();
-  }, [movieDetailSelector]);
+  }, [
+    movieDetailSelector,
+  ]);
+
+
 
   const [trailerOpen, setTrailerOpen] = useState(false);
   const [selectedTrailers, setSelectedTrailers] = useState<VideoResultDTO[]>(
@@ -111,25 +120,23 @@ export const MovieDetails = () => {
     setTrailerOpen(false);
   };
 
+ 
   const trailerUrl = `https://www.youtube.com/embed/${selectedTrailers[0]?.key}`;
 
-  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
+
+
+
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
   return (
     <>
-      <Grid container direction={{ xs: "column", md: "row" }} spacing={4}>
+      <Grid container direction={{ xs: 'column', md: 'row' }} spacing={4}>
         <Grid item xs={12}>
-          <Paper elevation={3} sx={{ mr: 3, p: 2, mt: 2, width: "100%" }}>
-            <Stack direction={{ xs: "column", md: "row" }} spacing={1}>
+          <Paper elevation={3} sx={{ mr: 3, p: 2, width: "100%", margin: "auto" }}>
+            <Stack direction={{ xs: 'column', md: 'row' }} spacing={1}>
               <Grid xs={5}>
-                <Card
-                  sx={{
-                    maxWidth: { xs: 250, md: 350 },
-                    maxHeight: { xs: 350, md: 490 },
-                    m: 3,
-                  }}
-                >
+                <Card sx={{ maxWidth: { xs: 250, md: 350 }, maxHeight: { xs: 350, md: 490 }, m: 3 }}>
                   <CardMedia
                     component="img"
                     height="500"
@@ -150,7 +157,7 @@ export const MovieDetails = () => {
                   </Typography>
                   <Grid>
                     <Chip
-                      label={formatDate(movieDetails?.release_date as string)}
+                      label={movieDetails?.release_date}
                       variant="filled"
                       color="warning"
                       icon={<HistoryEduIcon />}
@@ -226,45 +233,20 @@ export const MovieDetails = () => {
             </Tabs>
           </Box>
           <CustomTabPanel value={value} index={0}>
-            {castAndCrew?.cast.length === 0 ? (
-              <Typography variant="body1" align="center">
-                No data found.
-              </Typography>
-            ) : (
-              <MovieActors cast={castAndCrew?.cast as never} />
-            )}
+            <MovieActors cast={castAndCrew ? castAndCrew?.cast : []} />
           </CustomTabPanel>
           <CustomTabPanel value={value} index={1}>
-            {videos.length === 0 ? (
-              <Typography variant="body1" align="center">
-                No data found.
-              </Typography>
-            ) : (
-              <MovieVideo videos={videos} />
-            )}
+            <MovieVideo videos={videos} />
           </CustomTabPanel>
-
           <CustomTabPanel value={value} index={2}>
-            {movieImage?.posters.length === 0 ? (
-              <Typography variant="body1" align="center">
-                No data found.
-              </Typography>
-            ) : (
-              <MoviePoster posters={movieImage?.posters as never} />
-            )}
+            <MoviePoster posters={movieImage?.posters as never} />
           </CustomTabPanel>
           <CustomTabPanel value={value} index={3}>
-            {reviews?.results.length === 0 ? (
-              <Typography variant="body1" align="center">
-                No data found.
-              </Typography>
-            ) : (
-              <MovieReview results={reviews?.results as never} />
-            )}
+            <MovieReview results={reviews?.results as never} />
           </CustomTabPanel>
         </Box>
       </Grid>
-      <Dialog open={trailerOpen} onClose={handleTrailerClose}>
+      <Dialog open={trailerOpen} onClose={handleTrailerClose}  >
         <DialogContent sx={{ p: 0, m: 0 }}>
           <iframe
             width="560"

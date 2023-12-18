@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Card,
+  CardContent,
   CardMedia,
   Chip,
   Dialog,
@@ -10,16 +11,23 @@ import {
   Paper,
   Rating,
   Stack,
+  Step,
+  StepLabel,
+  Stepper,
   Tab,
   Tabs,
   Typography,
 } from "@mui/material";
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { selectMovieDetails } from "../../redux/selector";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
 import { useParams } from "react-router-dom";
 import HistoryEduIcon from "@mui/icons-material/HistoryEdu";
+import VideocamIcon from "@mui/icons-material/Videocam";
+import FaceIcon from "@mui/icons-material/Face";
+import Face2Icon from "@mui/icons-material/Face2";
 import PeopleIcon from "@mui/icons-material/People";
 import MovieActors from "../../components/MovieActors";
 import MovieVideo from "../../components/MovieVideo";
@@ -28,13 +36,23 @@ import { MovieReview } from "../../components/MovieReview";
 import {
   TabPanelProps,
   MovieImageList,
+  MovieImageDetails,
   MovieCreditsDTO,
+  CrewMemberDTO,
+  CastMemberDTO,
   VideoResultDTO,
+  MovieSimilarListDTO,
+  MovieSimilarkDTO,
   ReviewListDTO,
+  ReviewDTO,
+  MovieResult,
+  MoviePopularDTO,
   MovieDTO,
+  MovieDetail
 } from "./movieDetailtypes";
 import { fetchMovieDetails } from "../../services/api";
-import { formatDate } from "../../Utils/helpers";
+
+//review
 
 function CustomTabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
@@ -60,19 +78,27 @@ export const MovieDetails = () => {
   const movieIdParams = useParams();
   const movieDetailSelector = useSelector(selectMovieDetails);
 
+  const [movie, setMovie] = useState<MovieDetail | null>(null);
   const [movieDetails, setMovieDetails] = useState<MovieDTO>();
   const [castAndCrew, setCastAndCrew] = useState<MovieCreditsDTO | null>(null);
   const [videos, setVideos] = useState<VideoResultDTO[]>([]);
-
+  const [popularMovies, setPopularMovies] = useState<MoviePopularDTO | null>(
+    null
+  );
   const [reviews, setReviews] = useState<ReviewListDTO | null>(null);
+  const [similarMovies, setSimilarMovies] =
+    useState<MovieSimilarListDTO | null>(null);
 
   const [movieImage, setMovieImage] = useState<MovieImageList>();
   const [value, setValue] = useState(0);
 
+
+
   useEffect(() => {
-    const movieId: number = movieDetailSelector?.movieId
-      ? parseInt(movieDetailSelector?.movieId)
-      : parseInt(movieIdParams?.id as never);
+    setMovie(movieDetailSelector);
+    const movieId = movieDetailSelector?.movieId
+      ? movieDetailSelector?.movieId
+      : movieIdParams.id;
 
     const fetchData = async () => {
       try {
@@ -83,12 +109,88 @@ export const MovieDetails = () => {
         setVideos(details.videos);
         setReviews(details.reviews);
       } catch (error) {
-        console.error("Error fetching movie details:", error);
+        console.error('Error fetching movie details:', error);
       }
     };
 
     fetchData();
-  }, [movieDetailSelector]);
+  }, [
+    movieDetailSelector,
+    setCastAndCrew,
+    setVideos,
+    setPopularMovies,
+    setReviews,
+    setSimilarMovies,
+  ]);
+
+
+
+ /*  useEffect(() => {
+    setMovie(movieDetailSelector);
+    const movieId = movieDetailSelector?.movieId
+      ? movieDetailSelector?.movieId
+      : movieIdParams.id;
+
+    const fetchMovieDetails = async () => {
+      try {
+        const apiKey = "ab517a924bb34407923d1e5fab7eccbd";
+
+      
+        const imageResponse = await axios.get(
+          `https://api.themoviedb.org/3/movie/${movieId}/images?api_key=${apiKey}`
+        );
+        setMovieImage(imageResponse.data);
+        console.log("image", imageResponse);
+
+        const detailResponse = await axios.get(
+          `https://api.themoviedb.org/3/movie/${movieId}`,
+          {
+            params: {
+              api_key: "ab517a924bb34407923d1e5fab7eccbd",
+              language: "en-US",
+            },
+          }
+        );
+        console.log("detailResponse", detailResponse);
+        setMovieDetails(detailResponse.data);
+
+        // Fetch Cast and Crew
+        const castResponse = await axios.get(
+          `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}`
+        );
+        setCastAndCrew(castResponse.data);
+        console.log("castResponse", castResponse);
+
+        // Fetch Videos
+        const videosResponse = await axios.get(
+          `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}`
+        );
+        setVideos(videosResponse.data.results);
+        console.log("videosResponse", videosResponse);
+       
+
+
+        // Fetch Reviews
+        const reviewsResponse = await axios.get(
+          `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${apiKey}`
+        );
+        setReviews(reviewsResponse.data);
+        console.log("reviewsResponse", reviewsResponse);
+     
+      } catch (error) {
+        console.error("Error fetching movie details:", error);
+      }
+    };
+
+    fetchMovieDetails();
+  }, [
+    movieDetailSelector,
+    setCastAndCrew,
+    setVideos,
+    setPopularMovies,
+    setReviews,
+    setSimilarMovies,
+  ]); */
 
   const [trailerOpen, setTrailerOpen] = useState(false);
   const [selectedTrailers, setSelectedTrailers] = useState<VideoResultDTO[]>(
@@ -111,29 +213,26 @@ export const MovieDetails = () => {
     setTrailerOpen(false);
   };
 
+ 
   const trailerUrl = `https://www.youtube.com/embed/${selectedTrailers[0]?.key}`;
 
-  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
+
+
+
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
   return (
     <>
-      <Grid container direction={{ xs: "column", md: "row" }} spacing={4}>
+      <Grid container spacing={2}>
         <Grid item xs={12}>
-          <Paper elevation={3} sx={{ mr: 3, p: 2, mt: 2, width: "100%" }}>
-            <Stack direction={{ xs: "column", md: "row" }} spacing={1}>
+          <Paper elevation={3} sx={{ m: 2 }}>
+            <Stack direction="row" spacing={2}>
               <Grid xs={5}>
-                <Card
-                  sx={{
-                    maxWidth: { xs: 250, md: 350 },
-                    maxHeight: { xs: 350, md: 490 },
-                    m: 3,
-                  }}
-                >
+                <Card sx={{ maxWidth: 350, maxHeight: 490, m: 3 }}>
                   <CardMedia
                     component="img"
                     height="500"
-                    style={{ maxWidth: "100%", height: "auto" }}
                     image={`https://image.tmdb.org/t/p/w500${movieDetails?.poster_path}`}
                     alt={movieDetails?.title}
                   />
@@ -150,7 +249,7 @@ export const MovieDetails = () => {
                   </Typography>
                   <Grid>
                     <Chip
-                      label={formatDate(movieDetails?.release_date as string)}
+                      label={movieDetails?.release_date}
                       variant="filled"
                       color="warning"
                       icon={<HistoryEduIcon />}
@@ -226,41 +325,16 @@ export const MovieDetails = () => {
             </Tabs>
           </Box>
           <CustomTabPanel value={value} index={0}>
-            {castAndCrew?.cast.length === 0 ? (
-              <Typography variant="body1" align="center">
-                No data found.
-              </Typography>
-            ) : (
-              <MovieActors cast={castAndCrew?.cast as never} />
-            )}
+            <MovieActors cast={castAndCrew ? castAndCrew?.cast : []} />
           </CustomTabPanel>
           <CustomTabPanel value={value} index={1}>
-            {videos.length === 0 ? (
-              <Typography variant="body1" align="center">
-                No data found.
-              </Typography>
-            ) : (
-              <MovieVideo videos={videos} />
-            )}
+            <MovieVideo videos={videos} />
           </CustomTabPanel>
-
           <CustomTabPanel value={value} index={2}>
-            {movieImage?.posters.length === 0 ? (
-              <Typography variant="body1" align="center">
-                No data found.
-              </Typography>
-            ) : (
-              <MoviePoster posters={movieImage?.posters as never} />
-            )}
+            <MoviePoster posters={movieImage?.posters as never} />
           </CustomTabPanel>
           <CustomTabPanel value={value} index={3}>
-            {reviews?.results.length === 0 ? (
-              <Typography variant="body1" align="center">
-                No data found.
-              </Typography>
-            ) : (
-              <MovieReview results={reviews?.results as never} />
-            )}
+            <MovieReview results={reviews?.results as never} />
           </CustomTabPanel>
         </Box>
       </Grid>
