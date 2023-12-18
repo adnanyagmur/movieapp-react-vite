@@ -1,3 +1,7 @@
+
+![tlhc3ta](https://github.com/adnanyagmur/movieapp-react-vite/assets/80180114/1633f843-9522-4fbc-856e-47df8b270db2)
+
+
 # RAIN Movie
 
 RAIN Movie, React, TypeScript, Vite, Material-UI ve Redux Toolkit kullanılarak geliştirilen bir film uygulamasıdır. Bu proje, TMDB API'lerini entegre ederek kullanıcılara film arama, detayları görüntüleme ve favorilere ekleme gibi özellikler sunar.
@@ -126,6 +130,9 @@ imagetest
 #### DetailPage - Comments
 
 ![q0bzrts](https://github.com/adnanyagmur/movieapp-react-vite/assets/80180114/5caf1b46-5370-466e-975a-8a1711dbf4e2)
+
+![hwtbp4k](https://github.com/adnanyagmur/movieapp-react-vite/assets/80180114/97a8b2db-9035-4090-ae5a-5192f7b9c7d9)
+
 
 ##### DetailPage - Comments - Comment Card onClick
 ![r51lbeo](https://github.com/adnanyagmur/movieapp-react-vite/assets/80180114/9639a2c7-94da-4231-ab96-793b2d0c0f5d)
