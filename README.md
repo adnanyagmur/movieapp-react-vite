@@ -93,7 +93,7 @@ Proje, aşağıdaki özellikleri içermektedir:
 
 ### HomePage
 ![HomePage](https://i.hizliresim.com/hwtbp4k.jpg)
-
+<img src="https://i.hizliresim.com/hwtbp4k.jpg" alt="alt text" width="320" height="180">
 ### HomePage (Alt Kısım)
 ![HomePage Alt Kısım](https://i.hizliresim.com/23uo01f.jpg)
 
