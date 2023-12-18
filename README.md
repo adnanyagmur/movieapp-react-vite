@@ -125,7 +125,7 @@ Proje, aşağıdaki özellikleri içermektedir:
 ![Comments](https://i.hizliresim.com/q0bzrts.jpg)
 
 ##### DetailPage - Comments - Comment Card onClick
-![Comment Card onClick](https://i.hizliresim.com/r51lbeo.jpg)
+![Comment Card onClick](https://i.hizliresim.com/r51lbeo)
 
 
 
