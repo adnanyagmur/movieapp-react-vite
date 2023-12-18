@@ -102,6 +102,8 @@ Proje, aşağıdaki özellikleri içermektedir:
 
 ### DetailPage
 ![lfqc0nw](https://github.com/adnanyagmur/movieapp-react-vite/assets/80180114/bdb20d64-2245-4b1c-baf8-fb9503e3dfc3)
+imagetest
+![lfqc0nw](https://github.com/adnanyagmur/movieapp-react-vite/blob/main/assets/lfqc0nw.jpg)
 
 #### DetailPage - Watch Trailer Button
 ![8vp0dpi](https://github.com/adnanyagmur/movieapp-react-vite/assets/80180114/3487a18d-d97d-4a67-8684-bfab3b98a5f7)
