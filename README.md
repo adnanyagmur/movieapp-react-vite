@@ -40,15 +40,16 @@ VITE_APP_TMDB_API_KEY="buraya_api_anahtarınız"
 
 Projenin dosya ve klasör yapısı aşağıdaki gibi düzenlenmiştir:
 
-📦 src
-┣ 📂 components # Componentlerin bulunduğu kısım
-┣ 📂 pages # Temel olarak 3 sayfadan oluşan uygulamanın sayfalarının bulunduğu kısım
-┣ 📂 redux # State management için store, slice, selector dosyalarının bulunduğu kısım
-┣ 📂 services # TMDB API isteklerini toplanan kısım
-┣ 📂 utils # Yardımcı fonksiyonların bulunduğu kısım
-┣ 📜 App.tsx # Router yapısının bulunduğu ana uygulama dosyası
-┣ 📜 index.css
-┗ 📜 main.tsx
+- 📦 src
+  - 📂 components # Componentlerin bulunduğu kısım
+  - 📂 pages      # Temel olarak 3 sayfadan oluşan uygulamanın sayfalarının bulunduğu kısım
+  - 📂 redux      # State management için store, slice, selector dosyalarının bulunduğu kısım
+  - 📂 services   # TMDB API isteklerini topladığım kısım
+  - 📂 utils      # Yardımcı fonksiyonların bulunduğu kısım
+  - 📜 App.tsx    # Router yapısının bulunduğu ana uygulama dosyası
+  - 📜 index.css
+  - 📜 main.tsx
+
 
 ## Teknolojiler
 
