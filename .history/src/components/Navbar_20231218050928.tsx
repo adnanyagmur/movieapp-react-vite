@@ -37,13 +37,10 @@ const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
                   color="inherit"
                   sx={{
                     "&:hover": {
-                      backgroundColor: "transparent",
+                      backgroundColor: "transparent", // veya başka bir uygun renk
                     },
                   }}
-                  onClick={() => {
-                    navigate("/");
-                    window.location.reload();
-                  }}
+                  onClick={() => navigate("/")}
                 >
                   <ThunderstormIcon sx={{ mr: 1 }} />
 
@@ -53,15 +50,23 @@ const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
                 </Button>
               </Stack>
             </Grid>
+            {/*   <Grid item>
+            <Stack direction="row">
+              <TheatersIcon style={{ margin: 0 }} />
+              <SearchIcon style={{ margin: 0 }} />
+              <InputBase
+                placeholder="Search..."
+                style={{ color: "inherit", flexGrow: 1, width: "100%" }}
+                inputProps={{ "aria-label": "search" }}
+              />
+            </Stack>
+          </Grid> */}
             <Grid item>
               <Stack direction="row" gap={2}>
                 <Button
                   color="inherit"
                   sx={{ fontWeight: "bold" }}
-                  onClick={() => {
-                    navigate("/");
-                    window.location.reload();
-                  }}
+                  onClick={() => navigate("/")}
                 >
                   Home Page
                 </Button>

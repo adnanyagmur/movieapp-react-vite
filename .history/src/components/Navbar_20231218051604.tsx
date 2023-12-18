@@ -40,10 +40,7 @@ const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
                       backgroundColor: "transparent",
                     },
                   }}
-                  onClick={() => {
-                    navigate("/");
-                    window.location.reload();
-                  }}
+                  onClick={() => {navigate("/"); window.location.reload()}}
                 >
                   <ThunderstormIcon sx={{ mr: 1 }} />
 
@@ -58,10 +55,7 @@ const Navbar = ({ darkMode, toggleDarkMode }: NavbarProps) => {
                 <Button
                   color="inherit"
                   sx={{ fontWeight: "bold" }}
-                  onClick={() => {
-                    navigate("/");
-                    window.location.reload();
-                  }}
+                  onClick={() => {navigate("/"); window.location.reload()}}
                 >
                   Home Page
                 </Button>
