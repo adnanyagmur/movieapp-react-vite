@@ -5,7 +5,7 @@ type FooterProps ={
   
   export const Footer: React.FC<FooterProps> = ({ darkMode }) => {
     const footerStyle = {
-      marginTop: "20px",
+      marginTop: '2',
       backgroundColor: darkMode ? '#333' : '#f5f5f5',
       color: darkMode ? '#fff' : '#333',
       padding: '20px 0',

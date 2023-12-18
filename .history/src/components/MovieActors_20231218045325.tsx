@@ -31,7 +31,7 @@ export default function MovieActors({ cast }: MovieActorsProps) {
     <Grid item xs={12}>
       <Paper elevation={3} sx={{ p: 2, m: 2 }}>
         <div style={{ overflowX: "auto", display: "flex" }}>
-          {cast?.slice(0, 10)?.map((member: CastMemberDTO) => (
+          {cast?.slice(0, 10).map((member: CastMemberDTO) => (
             <Card key={member?.id} style={{ minWidth: 150, margin: "0 8px" }}>
               <CardMedia
                 component="img"
