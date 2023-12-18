@@ -1,3 +1,33 @@
+# RAIN Movie
+
+RAIN Movie, React, TypeScript, Vite, Material-UI ve Redux Toolkit kullanılarak geliştirilen bir film uygulamasıdır. Bu proje, TMDB API'lerini entegre ederek kullanıcılara film arama, detayları görüntüleme ve favorilere ekleme gibi özellikler sunar.
+
+## Proje Bağlantısı
+
+Netlify üzerindeki production a alınmış projeyi [buradan](#netlify-link) inceleyebilirsiniz.
+
+**Not: Proje Commitleri ve API Anahtarları**
+
+Proje commitlerinde kullanılan API anahtarları geçersizdir ve güvenlik nedenleriyle regenerete edilmiştir. Lütfen TMDB üzerinden kendi API anahtarınızı alın ve projenin gerekli yerlerine ekleyin.
+
+API anahtarınızı almak için [TMDB Developer Portal](https://www.themoviedb.org/settings/api) adresini ziyaret edebilirsiniz. Anahtarınızı aldıktan sonra, proje klasörü içindeki belirli dosyalara (örneğin `.env` dosyası) eklemeniz gerekebilir. Daha fazla bilgi için projenin belgelerine başvurun.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
