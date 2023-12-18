@@ -16,17 +16,11 @@ import {
   InputLabel,
   Paper,
   Stack,
-  InputAdornment,
 } from "@mui/material";
 import { useDispatch } from "react-redux";
-import {
-  commitAdvencedFilterData,
-  commitBasicFilterData,
-} from "../redux/slice/movieSlice";
+import { commitAdvencedFilterData, commitBasicFilterData } from "../redux/slice/movieSlice";
 import { fetchGenres } from "../services/api";
-import RestartAltIcon from "@mui/icons-material/RestartAlt";
-import SettingsIcon from "@mui/icons-material/Settings";
-import SearchIcon from "@mui/icons-material/Search";
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
 
 type AdvancedFilter = {
   sort_by: string;
@@ -46,7 +40,8 @@ type GenreType = {
 };
 
 const Search = () => {
-  const dispatch = useDispatch();
+
+  const dispatch = useDispatch()
 
   const [genreList, setGenreList] = useState<Array<GenreType>>();
 
@@ -59,8 +54,7 @@ const Search = () => {
 
   const [openDialog, setOpenDialog] = useState(false);
 
-  const isRatingError =
-    ratingValue !== "" && (ratingValue < 1 || ratingValue > 10);
+  const isRatingError =ratingValue !== "" && (ratingValue < 1 || ratingValue > 10);
 
   const years: number[] = [];
   const currentYear = new Date().getFullYear();
@@ -68,19 +62,21 @@ const Search = () => {
     years.push(year);
   }
 
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const genreList = await fetchGenres();
         setGenreList(genreList);
       } catch (error) {
-        console.error("Error fetching genres:", error);
+        console.error('Error fetching genres:', error);
       }
     };
 
     fetchData();
   }, []);
 
+ 
   const handleRatingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
     setRatingValue(newValue === "" ? "" : parseInt(newValue, 10));
@@ -100,7 +96,9 @@ const Search = () => {
     setSelectedYear("");
   };
 
+
   const handleAdvancedFilterApply = () => {
+   
     const advancedFilter: AdvancedFilter = {
       sort_by: sortBy,
       include_adult: adult,
@@ -111,65 +109,49 @@ const Search = () => {
         gte: 0,
         lte: ratingValue as number,
       },
-    };
+    }
 
-    dispatch(commitAdvencedFilterData(advancedFilter));
+    dispatch(commitAdvencedFilterData(advancedFilter))
     handleDialogClose();
   };
 
-  const handleTextFilters = (text: string) => {
+  const handleTextFilters = (text:string) => {
     if (text.trim() !== "" && text.length >= 2) {
-      dispatch(commitBasicFilterData(text));
-    } else handleAdvancedFilterApply();
+     dispatch(commitBasicFilterData(text))
+    }else(
+      handleAdvancedFilterApply()
+    ) 
+
   };
 
   return (
-    <Paper
-      elevation={3}
-      sx={{ mr: 3, p: 2, width: "100%", maxWidth: "800px", margin: "auto" }}
-    >
-      <Stack direction={{ xs: "column", md: "row" }} spacing={1}>
+    <Paper elevation={3} sx={{ mr: 3, p: 2 }}>
+      <Stack direction="row" spacing={1}>
         <TextField
           fullWidth
           label="Search"
           id="fullWidth"
           variant="filled"
           color="warning"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
-          }}
-          sx={{ fontWeight: "bold" }}
-          onChange={(e) => handleTextFilters(e.target.value)}
+          sx={{fontWeight: "bold"}}
+          onChange={(e)=>handleTextFilters(e.target.value)}
         />
         <Button
           variant="contained"
           color="inherit"
           onClick={handleDialogOpen}
-          sx={{
-            fontWeight: "bold",
-            mt: { xs: 1, md: 0 },
-            mr: { xs: 0, md: 1 },
-          }}
-          startIcon={<SettingsIcon />}
+          sx={{fontWeight: "bold"}}
+          startIcon={<RestartAltIcon/>}
         >
           Advanced Filtering
         </Button>
         <Button
           variant="contained"
           color="inherit"
-          onClick={() => window.location.reload()}
-          sx={{
-            fontWeight: "bold",
-            mt: { xs: 1, md: 0 },
-            mr: { xs: 0, md: 1 },
-          }}
-          startIcon={<RestartAltIcon />}
+          onClick={()=>window.location.reload()}
+          sx={{fontWeight: "bold"}}
         >
-          Filtering Reset
+        Filtering Reset
         </Button>
       </Stack>
 
@@ -178,13 +160,12 @@ const Search = () => {
         onClose={handleDialogClose}
         maxWidth="md"
         fullWidth
-        fullScreen={window.innerWidth < 600}
       >
         <Stack>
           <DialogTitle>Advanced Filtering</DialogTitle>
         </Stack>
         <DialogContent>
-          <Grid container direction={{ xs: "column", md: "row" }} spacing={4}>
+          <Grid container direction="row" spacing={4}>
             <Grid item xs={6}>
               <FormControl fullWidth>
                 <InputLabel>Sorting Type</InputLabel>
@@ -222,14 +203,12 @@ const Search = () => {
             </Grid>
             <Grid item xs={6}>
               <FormControl fullWidth>
-                <InputLabel id="year-select-label">
-                  Primary Release Year
-                </InputLabel>
+                <InputLabel id="year-select-label">Yayın Yılı</InputLabel>
                 <Select
                   labelId="year-select-label"
                   id="year-select"
                   value={selectedYear}
-                  label="Primary Release Year"
+                  label="Yayın Yılı"
                   onChange={(e) => setSelectedYear(e.target.value as number)}
                 >
                   {years.map((year) => (
@@ -295,27 +274,11 @@ const Search = () => {
           </Grid>
         </DialogContent>
         <DialogActions>
-          <Button
-            onClick={handleDialogClose}
-            color="secondary"
-            sx={{
-              fontWeight: "bold",
-              mt: { xs: 1, md: 0 },
-              mr: { xs: 0, md: 1 },
-            }}
-          >
-            Cancel
+          <Button onClick={handleDialogClose} color="secondary">
+            İptal
           </Button>
-          <Button
-            onClick={handleAdvancedFilterApply}
-            color="primary"
-            sx={{
-              fontWeight: "bold",
-              mt: { xs: 1, md: 0 },
-              mr: { xs: 0, md: 1 },
-            }}
-          >
-            Filter
+          <Button onClick={handleAdvancedFilterApply} color="primary">
+            Filtrele
           </Button>
         </DialogActions>
       </Dialog>

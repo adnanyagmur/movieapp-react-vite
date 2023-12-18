@@ -129,7 +129,7 @@ export const HomePage = () => {
         <Search />
       </Grid>
       {results.map((movie: MovieItem) => (
-        <Grid item key={movie.id} xs={12} sm={6} md={3} lg={3} xl={3}>
+        <Grid item key={movie.id} xs={12} sm={6} md={3} lg={3} xl={3} sx={{ ml: theme => theme.spacing(0.5)}}>
           <MovieCard
             key={movie.id}
             movieId={movie.id.toString()}

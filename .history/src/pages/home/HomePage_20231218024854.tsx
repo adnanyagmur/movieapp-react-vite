@@ -123,13 +123,13 @@ export const HomePage = () => {
     <Grid
       container
       spacing={1}
-      sx={{ m: theme => theme.spacing(3), justifyContent: "center", alignItems: "center" }}
+     // sx={{ m: theme => theme.spacing(3), justifyContent: "center", alignItems: "center" }}
     >
       <Grid item xs={12}>
         <Search />
       </Grid>
       {results.map((movie: MovieItem) => (
-        <Grid item key={movie.id} xs={12} sm={6} md={3} lg={3} xl={3}>
+        <Grid item key={movie.id} xs={12} sm={6} md={3} lg={3} xl={3} sx={{ ml: theme => theme.spacing(2)}}>
           <MovieCard
             key={movie.id}
             movieId={movie.id.toString()}

@@ -16,7 +16,7 @@ import {
   InputLabel,
   Paper,
   Stack,
-  InputAdornment,
+  InputAdornment
 } from "@mui/material";
 import { useDispatch } from "react-redux";
 import {
@@ -124,11 +124,8 @@ const Search = () => {
   };
 
   return (
-    <Paper
-      elevation={3}
-      sx={{ mr: 3, p: 2, width: "100%", maxWidth: "800px", margin: "auto" }}
-    >
-      <Stack direction={{ xs: "column", md: "row" }} spacing={1}>
+    <Paper elevation={3} sx={{ mr: 3, p: 2 }}>
+      <Stack direction="row" spacing={1}>
         <TextField
           fullWidth
           label="Search"
@@ -149,11 +146,7 @@ const Search = () => {
           variant="contained"
           color="inherit"
           onClick={handleDialogOpen}
-          sx={{
-            fontWeight: "bold",
-            mt: { xs: 1, md: 0 },
-            mr: { xs: 0, md: 1 },
-          }}
+          sx={{ fontWeight: "bold" }}
           startIcon={<SettingsIcon />}
         >
           Advanced Filtering
@@ -162,11 +155,7 @@ const Search = () => {
           variant="contained"
           color="inherit"
           onClick={() => window.location.reload()}
-          sx={{
-            fontWeight: "bold",
-            mt: { xs: 1, md: 0 },
-            mr: { xs: 0, md: 1 },
-          }}
+          sx={{ fontWeight: "bold" }}
           startIcon={<RestartAltIcon />}
         >
           Filtering Reset
@@ -178,13 +167,12 @@ const Search = () => {
         onClose={handleDialogClose}
         maxWidth="md"
         fullWidth
-        fullScreen={window.innerWidth < 600}
       >
         <Stack>
           <DialogTitle>Advanced Filtering</DialogTitle>
         </Stack>
         <DialogContent>
-          <Grid container direction={{ xs: "column", md: "row" }} spacing={4}>
+          <Grid container direction="row" spacing={4}>
             <Grid item xs={6}>
               <FormControl fullWidth>
                 <InputLabel>Sorting Type</InputLabel>
@@ -222,9 +210,7 @@ const Search = () => {
             </Grid>
             <Grid item xs={6}>
               <FormControl fullWidth>
-                <InputLabel id="year-select-label">
-                  Primary Release Year
-                </InputLabel>
+                <InputLabel id="year-select-label">Primary Release Year</InputLabel>
                 <Select
                   labelId="year-select-label"
                   id="year-select"
@@ -295,27 +281,11 @@ const Search = () => {
           </Grid>
         </DialogContent>
         <DialogActions>
-          <Button
-            onClick={handleDialogClose}
-            color="secondary"
-            sx={{
-              fontWeight: "bold",
-              mt: { xs: 1, md: 0 },
-              mr: { xs: 0, md: 1 },
-            }}
-          >
+          <Button onClick={handleDialogClose} color="secondary">
             Cancel
           </Button>
-          <Button
-            onClick={handleAdvancedFilterApply}
-            color="primary"
-            sx={{
-              fontWeight: "bold",
-              mt: { xs: 1, md: 0 },
-              mr: { xs: 0, md: 1 },
-            }}
-          >
-            Filter
+          <Button onClick={handleAdvancedFilterApply} color="primary">
+          Filter
           </Button>
         </DialogActions>
       </Dialog>
