@@ -128,3 +128,4 @@ Proje, aşağıdaki özellikleri içermektedir:
 ![Comment Card onClick](https://i.hizliresim.com/r51lbeo.jpg)
 
 
+
