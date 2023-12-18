@@ -92,40 +92,40 @@ Proje, aşağıdaki özellikleri içermektedir:
 ## Ekran Görüntüleri
 
 ### HomePage
-![HomePage](https://i.hizliresim.com/hwtbp4k.jpg)
-<img src="https://i.hizliresim.com/hwtbp4k.jpg" alt="alt text" width="320" height="180">
+![hwtbp4k](https://github.com/adnanyagmur/movieapp-react-vite/assets/80180114/0d8e704b-2e53-41ad-a396-d9d74ec1dde7)
+
 ### HomePage (Alt Kısım)
-![HomePage Alt Kısım](https://i.hizliresim.com/23uo01f.jpg)
+![23uo01f](https://github.com/adnanyagmur/movieapp-react-vite/assets/80180114/26173c0d-41ca-48e4-8b47-71b2f8355994)
 
 ### FavoriPage
-![FavoriPage](https://i.hizliresim.com/tlhc3ta.jpg)
+![tlhc3ta](https://github.com/adnanyagmur/movieapp-react-vite/assets/80180114/0194266b-d774-49dc-a069-10629585aa2a)
 
 ### DetailPage
-![DetailPage](https://i.hizliresim.com/lfqc0nw.jpg)
+![lfqc0nw](https://github.com/adnanyagmur/movieapp-react-vite/assets/80180114/bdb20d64-2245-4b1c-baf8-fb9503e3dfc3)
 
 #### DetailPage - Watch Trailer Button
-![Watch Trailer Button](https://i.hizliresim.com/8vp0dpi.jpg)
+![8vp0dpi](https://github.com/adnanyagmur/movieapp-react-vite/assets/80180114/3487a18d-d97d-4a67-8684-bfab3b98a5f7)
 
 #### DetailPage - Lead Actor
-![Lead Actor](https://i.hizliresim.com/8i7k1zd.jpg)
+![8i7k1zd](https://github.com/adnanyagmur/movieapp-react-vite/assets/80180114/a63c60ec-820f-4385-b243-d1a8b9bc7e46)
 
 #### DetailPage - Videos
-![Videos](https://i.hizliresim.com/2temm6i.jpg)
+![2temm6i](https://github.com/adnanyagmur/movieapp-react-vite/assets/80180114/74b86f7e-c189-45e0-9c2b-2f739953071b)
 
 ##### DetailPage - Videos - Watch Video Button
-![Watch Video Button](https://i.hizliresim.com/oru7iba.jpg)
+![oru7iba](https://github.com/adnanyagmur/movieapp-react-vite/assets/80180114/e88eccf1-8532-4183-841c-00cb22dcb9b8)
 
 #### DetailPage - Posters
-![Posters](https://i.hizliresim.com/6dojsdo.jpg)
+![6dojsdo](https://github.com/adnanyagmur/movieapp-react-vite/assets/80180114/cf70ec5a-9337-48e3-be06-8390d8d7e44e)
 
 ##### DetailPage - Posters - Poster Card onClick
-![Poster Card onClick](https://i.hizliresim.com/q5buc5d.jpg)
+![q5buc5d](https://github.com/adnanyagmur/movieapp-react-vite/assets/80180114/c6950982-361a-4d21-923b-ac57a2a59ce2)
 
 #### DetailPage - Comments
-![Comments](https://i.hizliresim.com/q0bzrts.jpg)
+![q0bzrts](https://github.com/adnanyagmur/movieapp-react-vite/assets/80180114/5caf1b46-5370-466e-975a-8a1711dbf4e2)
 
 ##### DetailPage - Comments - Comment Card onClick
-![Comment Card onClick](https://i.hizliresim.com/r51lbeo)
+![r51lbeo](https://github.com/adnanyagmur/movieapp-react-vite/assets/80180114/9639a2c7-94da-4231-ab96-793b2d0c0f5d)
 
 
 
