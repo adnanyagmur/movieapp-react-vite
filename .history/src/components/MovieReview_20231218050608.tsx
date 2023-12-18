@@ -65,9 +65,9 @@ export const MovieReview = ({ results }: MovieReviewList) => {
                 <Typography variant="subtitle2">
                   <Avatar
                     alt={review.author}
-                    src={`https://image.tmdb.org/t/p/w92${review.author_details?.avatar_path}`}
+                    src={`https://image.tmdb.org/t/p/w92${review.author_details.avatar_path}`}
                   />
-                  {` Author: ${review?.author}`}
+                  {` Author: ${review.author}`}
                 </Typography>
                 <Typography variant="body2">{`Created at: ${formatDate(
                   review?.created_at
