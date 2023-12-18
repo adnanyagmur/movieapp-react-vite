@@ -88,7 +88,7 @@ function MovieCard({
 
   return (
     <Card sx={{ maxWidth: 250, mt: 3 }}>
-      <CardActionArea>
+      <CardActionArea onClick={() => fetchMovieDetails()}>
         <CardMedia
           component="img"
           alt={title}
