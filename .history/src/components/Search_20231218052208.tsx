@@ -249,12 +249,12 @@ const Search = () => {
                   onChange={(e) => setLanguage(e.target.value)}
                   fullWidth
                 >
-                  <MenuItem key="en-US" value="en-US">English</MenuItem>
-                  <MenuItem key="tr-TR" value="tr-TR">Türkçe</MenuItem>
-                  <MenuItem key="es-ES" value="es-ES">Español</MenuItem>
-                  <MenuItem key="fr-FR" value="fr-FR">Français</MenuItem>
-                  <MenuItem key="de-DE" value="de-DE">Deutsch</MenuItem>
-                  <MenuItem key="it-IT" value="it-IT">Italiano</MenuItem>
+                  <MenuItem value="en-US">English</MenuItem>
+                  <MenuItem value="tr-TR">Türkçe</MenuItem>
+                  <MenuItem value="es-ES">Español</MenuItem>
+                  <MenuItem value="fr-FR">Français</MenuItem>
+                  <MenuItem value="de-DE">Deutsch</MenuItem>
+                  <MenuItem value="it-IT">Italiano</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
@@ -268,7 +268,7 @@ const Search = () => {
                   fullWidth
                 >
                   {genreList?.map((genre) => (
-                    <MenuItem key={genre?.id} value={genre?.id}>{genre?.name}</MenuItem>
+                    <MenuItem value={genre?.id}>{genre?.name}</MenuItem>
                   ))}
                 </Select>
               </FormControl>

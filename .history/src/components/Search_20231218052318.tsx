@@ -268,7 +268,7 @@ const Search = () => {
                   fullWidth
                 >
                   {genreList?.map((genre) => (
-                    <MenuItem key={genre?.id} value={genre?.id}>{genre?.name}</MenuItem>
+                    <MenuItem value={genre?.id}>{genre?.name}</MenuItem>
                   ))}
                 </Select>
               </FormControl>
